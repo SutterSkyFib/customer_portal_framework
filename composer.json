@@ -24,11 +24,11 @@
     "forum": "https://sonar.community"
   },
   "require": {
-    "php" : "^5.5 || ^7.0",
+    "php": "^8.2",
     "vlucas/phpdotenv": "*",
-    "guzzlehttp/guzzle": "6.*",
-    "inacho/php-credit-card-validator": "^1.0",
-    "nesbot/carbon": "1.*"
+    "guzzlehttp/guzzle": "^7.0",
+    "nesbot/carbon": "2.*",
+    "ext-ctype": "*"
   },
   "autoload": {
     "psr-4" : {

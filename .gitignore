@@ -3,3 +3,4 @@ vendor/*
 .idea/*
 .hgignore
 composer.lock
+/nbproject/

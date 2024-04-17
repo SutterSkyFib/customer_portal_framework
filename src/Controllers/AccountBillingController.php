@@ -44,7 +44,7 @@ class AccountBillingController
 
     public function getService($serviceID, $page = 1)
     {
-        return $this->httpHelper->get("services/" . intval(serviceID), $page);
+        return $this->httpHelper->get("services/" . intval($serviceID), $page);
     }
 
     /**

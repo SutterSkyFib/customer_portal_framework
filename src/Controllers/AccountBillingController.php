@@ -42,11 +42,6 @@ class AccountBillingController
         return $this->httpHelper->get("accounts/" . intval($accountID) . "/services", $page);
     }
 
-    public function getService($serviceID, $page = 1)
-    {
-        return $this->httpHelper->get("system/services/" . intval($serviceID), $page);
-    }
-
     /**
      * Returns an invoice as a base64 encoded string (see https://sonar.software/apidoc/index.html#api-Account_Invoices-GetInvoicePdf)
      * @param $accountID

@@ -7,14 +7,8 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Simon Westlake",
-      "email": "simon@sonar.software",
-      "homepage": "https://sonar.software",
-      "role": "Developer"
-    },
-    {
-      "name": "Devin Johnson",
-      "email": "devin@sonar.software",
+      "name": "Sonar Developers",
+      "email": "support@sonar.software",
       "homepage": "https://sonar.software",
       "role": "Developer"
     }

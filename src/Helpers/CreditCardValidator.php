@@ -227,7 +227,7 @@ class CreditCardValidator
             return $validResponse;
         }
 
-        if ($now->year === $exprYear && $now->month <= $exprMonth) {
+        if ($now->year == $exprYear && $now->month <= $exprMonth) {
             return $validResponse;
         }
 

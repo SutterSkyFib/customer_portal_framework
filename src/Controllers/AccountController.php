@@ -44,13 +44,13 @@ class AccountController
         $result2 = $this->httpHelper->get("/accounts/" . intval($accountID) . "/addresses");
 
         // Ensure the address data is available and extract the first address
-        $firstAddress = !empty($result2->data) && isset($result2->data[0]) ? $result2->data[0] : null;
+        $firstAddress = !empty($result2) && isset($result2[0]) ? $result2[0] : null;
 
         // Create and return the Account object
         return new Account([
             'account_id' => intval($accountID),
             'name' => $result1->name ?? null,
-            'line1' => $firstAddress->line1 ?? 'hello',
+            'line1' => $firstAddress->line1 ?? null,
             'city' => $firstAddress->city ?? null,
             'state' => $firstAddress->state ?? null,
             'zip' => $firstAddress->zip ?? null,

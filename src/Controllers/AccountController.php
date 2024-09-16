@@ -19,6 +19,17 @@ class AccountController
     }
 
     /**
+     * Get account details
+     * @param $accountID
+     * @return mixed
+     * @throws ApiException
+     */
+    public function getAccountDetails($accountID)
+    {
+        return $this->httpHelper->get("accounts/" . intval($accountID));
+    }
+
+    /**
      * Get details of an account, including its first address.
      * @param $accountID
      * @return Account

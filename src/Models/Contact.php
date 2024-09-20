@@ -9,6 +9,7 @@ class Contact
     private $contactID;
     private $accountID;
     private $name;
+    private $username; // New property for username
     private $role;
     private $emailAddress;
     private $phoneNumbers = [
@@ -59,6 +60,15 @@ class Contact
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Get the username
+     * @return mixed
+     */
+    public function getUsername()
+    {
+        return $this->username;
     }
 
     /**
@@ -126,7 +136,7 @@ class Contact
     /**
      * Set the contact ID
      * @param $contactID
-     * @return mixed
+     * @return void
      */
     public function setContactID($contactID)
     {
@@ -145,7 +155,7 @@ class Contact
     /**
      * Set the account ID
      * @param $accountID
-     * @return mixed
+     * @return void
      */
     public function setAccountID($accountID)
     {
@@ -164,7 +174,7 @@ class Contact
     /**
      * Set the name
      * @param $name
-     * @return mixed
+     * @return void
      */
     public function setName($name)
     {
@@ -176,9 +186,23 @@ class Contact
     }
 
     /**
+     * Set the username
+     * @param $username
+     * @return void
+     */
+    public function setUsername($username)
+    {
+        if (trim($username) == null)
+        {
+            throw new InvalidArgumentException("You must supply a username.");
+        }
+        $this->username = $username;
+    }
+
+    /**
      * Set the role
      * @param $role
-     * @return mixed
+     * @return void
      */
     public function setRole($role)
     {
@@ -188,7 +212,7 @@ class Contact
     /**
      * Set the email address
      * @param $emailAddress
-     * @return mixed
+     * @return void
      */
     public function setEmailAddress($emailAddress)
     {
@@ -206,7 +230,7 @@ class Contact
     /**
      * Set a phone number on the contact.
      * @param PhoneNumber $phoneNumber
-     * @return array
+     * @return void
      */
     public function setPhoneNumber(PhoneNumber $phoneNumber)
     {
@@ -219,6 +243,7 @@ class Contact
     }
 
     /**
+     * Store input values into the object properties.
      * @param $values
      */
     public function storeInput($values)
@@ -227,6 +252,7 @@ class Contact
             'contact_id',
             'account_id',
             'name',
+            'username', // Ensure username is included as required
             'role',
             'email_address',
             'phone_numbers'
@@ -248,12 +274,12 @@ class Contact
         $this->setContactID($values['contact_id']);
         $this->setAccountID($values['account_id']);
         $this->setName($values['name']);
+        $this->setUsername($values['username']); // Store the username
         $this->setRole($values['role']);
         $this->setEmailAddress($values['email_address']);
         foreach ($values['phone_numbers'] as $phoneNumber)
         {
             $this->setPhoneNumber($phoneNumber);
         }
-
     }
 }

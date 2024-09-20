@@ -46,10 +46,12 @@ class ContactController
             }
         }
 
+        // Adding the username field from results[0].username
         $contact = new Contact([
             'contact_id' => $result->id,
             'account_id' => intval($accountID),
             'name' => $result->name,
+            'username' => $result->username, // Assign the username from the result
             'role' => $result->role,
             'email_address' => $result->email_address,
             'phone_numbers' => $phoneNumbers,

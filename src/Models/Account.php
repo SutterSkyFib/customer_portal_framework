@@ -13,6 +13,7 @@ class Account
     private $state;
     private $zip;
     private $country;
+    private $subAccounts = []; // Array to hold sub-account objects
 
     /**
      * Account constructor.
@@ -187,6 +188,25 @@ class Account
             throw new InvalidArgumentException("You must supply a country.");
         }
         $this->country = $country;
+    }
+
+    /**
+     * Add a sub-account.
+     * @param Account $account
+     * @return void
+     */
+    public function addSubAccount(Account $account): void
+    {
+        $this->subAccounts[] = $account;
+    }
+
+    /**
+     * Get the sub-accounts.
+     * @return array
+     */
+    public function getSubAccounts(): array
+    {
+        return $this->subAccounts;
     }
 
     /**
